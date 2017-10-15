@@ -28,7 +28,7 @@ def stocGradAscent1(dataMatrix, classLabels):
     weights = ones(n)   #initialize to all ones
     weightsHistory=zeros((40*m,n))
     for j in range(40):
-        dataIndex = range(m)
+        dataIndex = list(range(m))
         for i in range(m):
             alpha = 4/(1.0+j+i)+0.01
             randIndex = int(random.uniform(0,len(dataIndex)))
@@ -38,7 +38,7 @@ def stocGradAscent1(dataMatrix, classLabels):
             weights = weights + alpha * error * dataMatrix[randIndex]
             weightsHistory[j*m + i,:] = weights
             del(dataIndex[randIndex])
-    print weights
+    print(weights)
     return weightsHistory
     
 
